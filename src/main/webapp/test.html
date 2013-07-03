@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="userDefined">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="statics/css/bootstrap.css">
+  <!-- 官方资源 -->
+  <script src="/angularjs/statics/js/plugin/angular.js"></script>
+  <script src="/angularjs/statics/js/plugin/angular-resource.js"></script>
+
+   <!-- 自定义组件 -->
+  <script src="/angularjs/statics/js/module.js"></script>
+  <script src="/angularjs/statics/js/services.js"></script>
+  <script src="/angularjs/statics/js/directives.js"></script>
+  <script src="/angularjs/statics/js/filters.js"></script>
+
+  <!-- 当前控制器 -->
+  <script src="/angularjs/statics/js/testContro.js"></script>
+</head>
+	<body >
+	<div ng-controller="TestCtrl">
+	  <input ng-model="name"></input>
+	  <button ng-click="alert1()">输出</button>
+	  <h1>{{name}}</h1>
+	</div>
+	</body>
+</html>

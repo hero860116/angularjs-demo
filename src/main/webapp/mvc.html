@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app="original">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="statics/css/bootstrap.css">
+
+  <!-- 官方资源 -->
+  <script src="/angularjs/statics/js/plugin/angular.js"></script>
+  <script src="/angularjs/statics/js/plugin/angular-resource.js"></script>
+
+   <!-- 自定义组件 -->
+  <script src="/angularjs/statics/js/module.js"></script>
+  <script src="/angularjs/statics/js/services.js"></script>
+  <script src="/angularjs/statics/js/directives.js"></script>
+  <script src="/angularjs/statics/js/filters.js"></script>
+
+  <!-- 当前控制器 -->
+  <script src="/angularjs/statics/js/mvcContro.js"></script>
+
+
+</head>
+	<body >
+	<div ng-controller="MvcCtrl">
+	  <input ng-model="order"></input>
+	  <ul>
+	    <li ng-repeat="employee in employees | orderBy:order">
+	      {{employee.name}}
+	      <p>{{employee.email}}</p>
+	    </li>
+	  </ul>
+	</div>
+	</body>
+</html>

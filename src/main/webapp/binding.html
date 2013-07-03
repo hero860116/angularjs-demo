@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" ng-app="userDefined">
+<head>
+<meta charset="utf-8">
+<title>Google Phone Gallery</title>
+
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/common.css?t=2">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/core.css?t=2">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/layout.css?t=2">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/classes.css?t=2">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/new/core.css?t=4">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/new/layout.css?t=4">
+	<link rel="stylesheet" type="text/css"
+		href="http://www.juwaimai.com/statics/css/new/classes.css?t=4">
+
+	<link rel="stylesheet" href="statics/css/bootstrap.css">
+
+  <!-- 官方资源 -->
+  <script src="/angularjs/statics/js/plugin/angular.js"></script>
+  <script src="/angularjs/statics/js/plugin/angular-resource.js"></script>
+  <script src="/angularjs/statics/js/plugin/tangram.js"></script>
+
+   <!-- 自定义组件 -->
+  <script src="statics/js/module.js"></script>
+  <script src="statics/js/services.js"></script>
+  <script src="statics/js/directives.js"></script>
+  <script src="statics/js/filters.js"></script>
+
+  <!-- 当前控制器 -->
+  <script src="statics/js/bindingContro.js"></script>
+</head>
+<body>
+	<div id="page" ng-controller="bindingCtrl">
+		<!--
+			<ul>
+				<li ng-repeat="food in foods">
+					{{food.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					{{food.price}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+					ng-click="addFood(food)">点餐</a>
+				</li>
+			</ul>
+			<hr />
+		 -->
+
+		<div id="foodCon">
+			<div id="foodsul">
+				<div class="factbox" ng-repeat="food in foods">
+					<dl>
+						<dt>
+							<a id="imga16215"
+								href="">
+								<img id="img16215" width="210px" height="210px"
+								src="http://img11.juwaimai.com/statics/images/food/_s3QkkxJd2jNZriQeMas1q0ZpKCFv29.jpg!210"
+								onerror="this.src='http://www.juwaimai.com/statics/images/none.jpg';"> </a>
+						</dt>
+						<dd>
+							<dl>
+								<dt>
+									<span>{{food.name}}</span>
+								</dt>
+								<dd>
+									<ul>
+										<li><span class="foodprice">￥{{food.price}}</span></li>
+										<li class="right-li" ><span>月销量：</span><span
+											class="foodprice">{{food.soldSize}}</span></li>
+									</ul>
+								</dd>
+							</dl>
+						</dd>
+					</dl>
+					<div class="shopcar">
+						<a ng-click="addFood(food)">点餐 </a>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="foodcar">
+				<div class="foodcarposition">
+					<div class="full-cart" id="allSendTimeOrders"
+						style="display: block;">
+
+						<div class="cart-food-box">
+							<table class="head">
+								<thead>
+									<tr>
+										<th class="item_name">美食名称</th>
+										<th class="item_shopname">所属店铺</th>
+										<th class="item_single_price">单价</th>
+										<th class="item_quantity">数量</th>
+										<th class="item_price">小计</th>
+										<th class="item_delete"><a href=""
+											ng-click="clearDiner()">清空</a></th>
+									</tr>
+								</thead>
+							</table>
+							<div class="detail_wrapper">
+								<table id="allFood">
+
+
+
+									<tbody class="detail-food" ng-repeat="food in diner">
+										<tr>
+											<td class="item_name">{{food.name}}</td>
+											<td class="item_shopname"><a href="">老桥头东北菜</a>
+											</td>
+											<td class="item_single_price">{{food.price}}</td>
+											<td class="item_quantity"><span> <a class="add"
+													ng-click="addFood(food)"></a> <a class="cut"
+													ng-click="reduceFoodSize(food)"></a> </span> <input type="text"
+												value="{{food.size}}" maxlength="3"></td>
+											<td class="item_price" id="foodSubPrice6848">{{food.size * food.price}}</td>
+											<td class="item_delete"><a class="deleteimage"
+												ng-click="deleteFood(food)" href=""></a>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+
+				<div class="empty-cart">
+					<div class="carshop">
+						<span class="carshopname"
+							style="background-image: url(http://www.juwaimai.com/statics/images/down.gif); background-attachment: scroll; background-color: rgb(210, 232, 242); background-position: 98.5% 60%; background-repeat: no-repeat no-repeat;">餐车
+							@<font id="shopOwnCar">老桥头东北菜</font>
+						</span> <span id="latestFood"></span>
+					</div>
+
+					<div class="count">
+						共&nbsp; <strong id="totalFoodSize">{{totalSize(diner)}}</strong>
+						&nbsp;份美食&nbsp;|&nbsp;合计&nbsp; <strong id="totalFoodPrice">{{totalPrice(diner)}}</strong>
+						&nbsp;元
+					</div>
+				</div>
+				<!--
+				<div class="foodcarbutton">
+					<form method="post"
+						action="http://www.juwaimai.com/order_confirm.htm">
+						<button type="submit" name="submit" id="orderConfirmButton">
+						</button>
+					</form>
+				</div>
+				-->
+				</div>
+			</div>
+
+
+		</div>
+</body>
+</html>
